@@ -59,3 +59,18 @@ droite (sans garantir que cette droite existe réellement dans l'image).
 
 On pourra alors au choix, fixer un seuil de votes pour que la droite soit considérée par le programme, ou bien fixer un
 nombre de droites à trouver et les récupérer par ordre décroissant de nombre de votes.
+
+
+La transformée de Hough ne se limite pas seulement aux droites. 
+En effet, elle utilise seulement les paramètres représentatifs du « motif » que l'on cherche. Ainsi, on peut généraliser la transformée à toute courbe dont on connaît une
+équation paramétrique.
+Il suffit de faire une bijection de ces surfaces à n paramètres sur un espace de dimension n.
+Par exemple, la transformée de Hough est performante dans la recherche de cercles d'un rayon donné :
+
+(x-a)2 + (y-b)2 = r2
+
+Chaque point de (x;y) de l'image devient un cône dans l'espace des paramètres (a,b,r). Pour un rayon fixé, on obtient un
+cercle.
+
+Cependant, lorsque le nombre de paramètre augmente, la transformée de Hough devient très coûteuse, elle n'est donc
+judicieuse que pour des recherches dont le nombre de paramètres reste faible.
